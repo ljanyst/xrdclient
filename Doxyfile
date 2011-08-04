@@ -20,3 +20,4 @@ GENERATE_LEGEND        = YES
 DOT_CLEANUP            = YES
 GENERATE_LATEX         = NO
 INPUT                  = XrdCl
+JAVADOC_AUTOBRIEF      = YES
