@@ -2,7 +2,10 @@
 # Project description
 #-------------------------------------------------------------------------------
 cmake_minimum_required( VERSION 2.8 )
-project( XRootD )
+project( XRootDClient )
+
+#set( CMAKE_BUILD_TYPE RelWithDebInfo )
+set( CMAKE_BUILD_TYPE Debug )
 
 set( CMAKE_MODULE_PATH
  ${PROJECT_SOURCE_DIR}/cmake )
@@ -17,10 +20,7 @@ set( OSDEFINE ""    )
 
 if( ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" )
   set( Linux TRUE )
-  set( CMAKE_INSTALL_LIBDIR "lib" )
-  set( CMAKE_INSTALL_BINDIR "bin" )
-  set( CMAKE_INSTALL_MANDIR "man" )
-#  include( GNUInstallDirs )
+  include( GNUInstallDirs )
   add_definitions( -D__LINUX__=1 )
   add_definitions( -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 )
   set( EXTRA_LIBS rt )
