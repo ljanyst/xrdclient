@@ -50,6 +50,7 @@ endif()
 #-------------------------------------------------------------------------------
 find_package( CPPUnit )
 find_package( XRootD REQUIRED )
+find_package( ZLIB REQUIRED)
 
 #-------------------------------------------------------------------------------
 # Build in subdirectories
