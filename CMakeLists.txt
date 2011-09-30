@@ -50,7 +50,10 @@ endif()
 #-------------------------------------------------------------------------------
 find_package( CPPUnit )
 find_package( XRootD REQUIRED )
-find_package( ZLIB REQUIRED)
+find_package( ZLIB REQUIRED )
+find_package( LibEvent REQUIRED )
+find_package( LibEventPthreads REQUIRED )
+add_definitions( -DHAVE_LIBEVENT )
 
 #-------------------------------------------------------------------------------
 # Build in subdirectories
