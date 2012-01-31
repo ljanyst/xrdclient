@@ -55,6 +55,16 @@ find_package( LibEvent REQUIRED )
 find_package( LibEventPthreads REQUIRED )
 add_definitions( -DHAVE_LIBEVENT )
 
+if( ENABLE_READLINE )
+  find_package( Readline )
+  if( READLINE_FOUND )
+    add_definitions( -DHAVE_READLINE )
+  else()
+    set( READLINE_LIBRARY "" )
+    set( NCURSES_LIBRARY "" )
+  endif()
+endif()
+
 #-------------------------------------------------------------------------------
 # Build in subdirectories
 #-------------------------------------------------------------------------------
