@@ -66,6 +66,17 @@ if( ENABLE_READLINE )
 endif()
 
 #-------------------------------------------------------------------------------
+# We're using GCC so let's be pedantic
+#-------------------------------------------------------------------------------
+if( CMAKE_COMPILER_IS_GNUCXX )
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror" )
+endif()
+
+if( CMAKE_COMPILER_IS_GNUCC )
+  set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror" )
+endif()
+
+#-------------------------------------------------------------------------------
 # Build in subdirectories
 #-------------------------------------------------------------------------------
 add_subdirectory( XrdCl )
