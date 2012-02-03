@@ -1,0 +1,30 @@
+--------------------------------------------------------------------------------
+                    _    _ ______                   _____
+                   \ \  / (_____ \             _   (____ \
+                    \ \/ / _____) ) ___   ___ | |_  _   \ \
+                     )  ( (_____ ( / _ \ / _ \|  _)| |   | |
+                    / /\ \      | | |_| | |_| | |__| |__/ /
+                   /_/  \_\     |_|\___/ \___/ \___)_____/
+
+--------------------------------------------------------------------------------
+
+1. B U I L D   I N S T R U C T I O N S
+
+2.1 Dependencies
+
+  * libevent 2.0.x (http://libevent.org/) for handling socket events
+  * xrootd > 3.1.0 (http://xrootd.org), for some base libraries
+  * libreadline (http://www.gnu.org/s/readline/), for managing commandline
+    (optional)
+
+2.2 Build parameters
+
+  The build process supports the following parameters:
+
+  * XROOTD_DIR           - path where xrootd is installed
+  * LIBEVENT_DIR         - path where lib event is installed
+  * READLINE_ROOT_DIR    - path to the root of the readline installation if it
+                           cannot be detected in a standard location
+  * CMAKE_C_COMPILER     - path to the c compiler that should be used
+  * CMAKE_CXX_COMPILER   - path to the c++ compiler that should be used
+
