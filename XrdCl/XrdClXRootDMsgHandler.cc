@@ -366,8 +366,24 @@ namespace XrdCl
     XRootDStatus *status   = ProcessStatus();
     AnyObject    *response = 0;
 
-    if( status->IsOK() )
+    if( status->IsOK() ) {
       response = ParseResponse();
+    }
+    else {
+      //------------------------------------------------------------------------
+      // Return ChunkInfo information in case of a failed read request
+      //------------------------------------------------------------------------
+      ClientRequest  *req = (ClientRequest *)pRequest->GetBuffer();
+      XRootDTransport::UnMarshallRequest( pRequest );
+      
+      if ( req && ( req->header.requestid == kXR_read ) ) {
+        AnyObject *obj   = new AnyObject();
+        ChunkInfo *chunk = new ChunkInfo( req->read.offset, req->read.rlen );
+        obj->Set( chunk );
+        response = obj;
+      }
+    }
+    
     pResponseHandler->HandleResponse( status, response, pRedirections );
 
     //--------------------------------------------------------------------------
