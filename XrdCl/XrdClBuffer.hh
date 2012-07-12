@@ -187,7 +187,7 @@ namespace XrdCl
       //------------------------------------------------------------------------
       void FromString( const std::string str )
       {
-        ReAllocate( str.length()+1 );
+        ReAllocate( str.length() + 1 );
         memcpy( pBuffer, str.c_str(), str.length() );
         pBuffer[str.length()] = 0;
       }
