@@ -55,6 +55,8 @@ find_package( LibEvent REQUIRED )
 find_package( LibEventPthreads REQUIRED )
 add_definitions( -DHAVE_LIBEVENT )
 
+ENABLE_TESTING()
+
 find_package( Readline )
 if( READLINE_FOUND )
   add_definitions( -DHAVE_READLINE )
