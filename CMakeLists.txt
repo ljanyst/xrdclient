@@ -69,11 +69,11 @@ endif()
 # We're using GCC so let's be pedantic
 #-------------------------------------------------------------------------------
 if( CMAKE_COMPILER_IS_GNUCXX )
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror" )
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -Wno-unused-parameter" )
 endif()
 
 if( CMAKE_COMPILER_IS_GNUCC )
-  set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror" )
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror -Wno-unused-parameter" )
 endif()
 
 #-------------------------------------------------------------------------------
