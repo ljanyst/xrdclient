@@ -5,8 +5,20 @@
 # CPPUNIT_INCLUDE_DIRS - the cppunit include directories
 # CPPUNIT_LIBRARIES - cppunit libraries directories
 
-find_path(CPPUNIT_INCLUDE_DIRS cppunit/ui/text/TestRunner.h)
-find_library(CPPUNIT_LIBRARIES cppunit)
+find_path( CPPUNIT_INCLUDE_DIRS cppunit/ui/text/TestRunner.h
+  HINTS
+  ${CPPUNIT_DIR}
+  $ENV{CPPUNIT_DIR}
+  /usr
+  PATH_SUFFIXES include
+)
+
+find_library( CPPUNIT_LIBRARIES cppunit
+  HINTS
+  ${CPPUNIT_DIR}
+  $ENV{CPPUNIT_DIR}
+  PATH_SUFFIXES lib
+)
 
 set(CPPUNIT_INCLUDE_DIRS ${CPPUNIT_INCLUDE_DIR})
 set(CPPUNIT_LIBRARIES ${CPPUNIT_LIBRARY})
